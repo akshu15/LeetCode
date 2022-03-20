@@ -31,7 +31,5 @@ class Solution:
         elif list2==None:
             newlist.next=list1
         
-        print(list1, list2)
-        print(dummy.next)
         return dummy.next
         
