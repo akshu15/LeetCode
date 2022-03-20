@@ -15,10 +15,6 @@ class Solution:
             itr = head #used to iterate our linkedlist
             head2=ListNode() #create a listnode to create new linked list
             head2 = head2.next
-#             node=ListNode(itr.val)
-#             node.next=head2
-#             head2=node
-
 
             while itr:
                 # print(itr.val)
