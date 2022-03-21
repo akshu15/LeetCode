@@ -24,11 +24,11 @@ class Solution:
                     print(value.val)
                     mylist+=[value.val]
                     value=value.next
-
-            mylist.sort()  
-        
+          
             length=len(mylist)
             if length>0:
+                mylist.sort() 
+           
                 node=ListNode(mylist[0])
                 head=node
                 itr=head
