@@ -33,6 +33,8 @@ class Solution:
             while len(letter_list)>1:
                 list1 = letter_list.pop()
                 list2 = letter_list.pop()
+                
+                print(list1, list2)
 
                 combo=[]
 
@@ -40,8 +42,9 @@ class Solution:
                     for ch2 in list2:
 
                         combo.append(ch2 + ch1)
-
+                # print(combo)
                 letter_list.append(combo)
+                # print(letter_list)
 
             return letter_list[0]
             
