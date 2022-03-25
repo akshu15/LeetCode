@@ -21,21 +21,16 @@ class Solution:
                     
                 else:
                     
-                    s=[]
-                    s+=[start]+[end]
-                    
-                    mylist.append(s)
+                    mylist.append([start,end])
                     
                     start=intervals[i][0]
                     end=intervals[i][1]
                     
             if intervals[len(intervals)-1][0]<=end:
                 end=max(intervals[len(intervals)-1][1],end)
-            
-                s=[]
-                s+=[start]+[end]
+
                     
-                mylist.append(s)
+                mylist.append([start,end])
             
             return(mylist)
                     
