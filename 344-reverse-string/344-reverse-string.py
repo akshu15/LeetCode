@@ -4,10 +4,14 @@ class Solution:
         Do not return anything, modify s in-place instead.
         """
         
-        return(s.reverse())
+        # return(s.reverse())
         
-#         m=[]
-#         for i in range(len(s)-1,-1,-1):
-#             m.append(s[i])
-#         return m
-        
+        left,right=0,len(s)-1
+
+        while left<right:
+            
+            temp=s[left]
+            s[left]=s[right]
+            s[right]=temp
+            left+=1
+            right-=1
