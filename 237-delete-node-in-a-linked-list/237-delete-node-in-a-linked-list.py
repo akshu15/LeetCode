@@ -14,9 +14,6 @@ class Solution:
             
             node.val=node.next.val
             node.next=node.next.next
-            print(node)
-            # node.next.next=None
-            print(node)
         else:
             node.val=node.next.val
             node.next=None
