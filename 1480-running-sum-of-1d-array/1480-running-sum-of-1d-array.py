@@ -1,22 +1,12 @@
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:
         
+        total=0
         mylist=[]
-        mylist.append(nums[0])
         
-        for i in range(1,len(nums)):
+        for num in nums:
+            total+=num
             
-            mylist.append(nums[i])
-            mylist[-1] = mylist[-1]+mylist[-2]
-        
+            mylist.append(total)
+            
         return(mylist)
-        
-#         total=0
-#         mylist=[]
-        
-#         for num in nums:
-#             total+=num
-            
-#             mylist.append(total)
-            
-#         return(mylist)
