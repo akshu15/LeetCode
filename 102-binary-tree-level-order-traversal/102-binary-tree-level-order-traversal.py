@@ -7,63 +7,38 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         
-        i=0
-        hashMap={}
+        if not root:
+            return []
         
-        def findroot(root,i):
-            if root==None:
-                return
+        q = deque([root])
+        BFS=[]
+        
+        while q:
             
-            if i in hashMap:
-                hashMap[i].append(root.val)
-            else:
-                hashMap[i] = [root.val]
+            level = []
             
-            findroot(root.left, i+1)
-            findroot(root.right,i+1)
-            
-        
-        findroot(root,i)
-        
-        return(list(hashMap.values()))
-        
-#         print(root.left)
-#         print(root.right)
-#         element=[]
-#         mylist=[]
-        
-        
-#         element+=[root.left.val]
-#         element+=[root.right.val]
-        
-#         mylist.append(element)
-        # print(mylist)
-        
-#         if root:
-#             element+=[root.val]
-
-#             mylist.append(element)
-#             element=[]
-#             index=0
-#             itr=root
-            
-#             while itr:
+            for i in range(len(q)):
                 
-#                 if root.left and index==0:
-#                     element+=[root.left.val]
-#                     index=1
-
-#                 if root.right and index==1:
-#                     element+=[root.right.val]
-#                     index=0
-
-#                 mylist.append(element)
-#                 itr=itr
+                node = q.popleft()
+                
+                if node:
+                    if node.left: 
+                        q.append(node.left) 
+                        
+                    if node.right:
+                        q.append(node.right) 
+                        
+                val = node.val 
+                level.append(val) 
+                
+            BFS.append(level)
+        return BFS
+                
+                
         
-#             print(mylist)
-            
-#         else:
-#             return
+        
+
+        
 
 
 
