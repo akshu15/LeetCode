@@ -7,48 +7,33 @@
 class Solution:
     def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         
-        i=0
-        hashMap={}
-        
-        def zigzag(root,i):
+        if not root:
+            return []
+        count = 0
+        q=deque([root])
+        BFS=[]
+        while q:
             
-            if root==None:
-                return
+            level = []
             
-            if i in hashMap:
-                hashMap[i].append(root.val)
+            if count == 0:
+                count=1
             else:
-                hashMap[i]=[root.val]
-            
-            zigzag(root.left,i+1)
-            zigzag(root.right,i+1)
+                count=0
+            for i in range(len(q)):
+                node = q.popleft()
                 
-            # print(hashMap)
-            
-        zigzag(root,i)
-        
-        mylist=[]
-        
-        def rever(rlist):
-            element=[]
-            for i in range(len(rlist)-1,-1,-1):
-                element+=[rlist[i]]
-            
-            print(element)
-            return(element)
-        
-        # print(mylist)
-        
-        el=0
-     
-        while (el<len(hashMap.values())-1):
-            mylist.append(hashMap[el])
-            mylist.append(rever(hashMap[el+1]))
-            el=el+2
-            
-        if el==len(hashMap.values())-1:
-            mylist.append(hashMap[el])  
-            
-        return(mylist)
+                if node:
+                    if node.left: q.append(node.left)
+                    if node.right: q.append(node.right)
+                        
+                val = node.val
+                level.append(val)
+                
+            if count == 1:
+                BFS.append(level)
+            else:
+                BFS.append(level[::-1])
+        return BFS                            
         
             
