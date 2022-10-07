@@ -7,29 +7,30 @@
 class Solution:
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
         
-        hashMap={}
-        i=0
+        if not root:
+            return []
         
-        def treeTraverse(root,i):
+        q = deque([root])
+        BFS=[]
+        
+        while q:
             
-            if root==None:
-                return
+            level = []
             
-            if i in hashMap:
-                hashMap[i].append(root.val)
-            else:
-                hashMap[i]=[root.val]
+            for i in range(len(q)):
                 
-            treeTraverse(root.left, i+1)
-            treeTraverse(root.right, i+1)
-            
-            
-        treeTraverse(root,i)
-        # print(hashMap)
-        mylist=[]
+                node = q.popleft()
+                
+                if node:
+                    if node.left: 
+                        q.append(node.left) 
+                        
+                    if node.right:
+                        q.append(node.right) 
+                        
+                val = node.val 
+                level.append(val) 
+                
+            BFS.append(level)
+        return BFS[::-1]
         
-        for i in range(len(hashMap.values())-1,-1,-1):
-            
-            mylist.append(hashMap[i])
-            
-        return(mylist)
