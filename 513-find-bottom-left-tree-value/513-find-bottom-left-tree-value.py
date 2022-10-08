@@ -29,24 +29,26 @@ class Solution:
                     if node.right:
                         q.append(node.right) 
                         
-                if not node.left: 
-                    n.append(None) 
-                else: 
-                    n.append(node.left.val)
+#                 if not node.left: 
+#                     n.append(None) 
+#                 else: 
+#                     n.append(node.left.val)
                     
                 
-                if not node.right: 
-                    n.append(None)
-                else: 
-                    n.append(node.right.val)
+#                 if not node.right: 
+#                     n.append(None)
+#                 else: 
+#                     n.append(node.right.val)
                 # print(n)
                 val = node.val
                 level.append(val) 
                 
             BFS.append(level)
-            n_arr.append(n)
-        
-        lastLevel=n_arr[-2]
-        for i in range(len(lastLevel)):
-            if lastLevel[i] is not None:
-                return(lastLevel[i])
+            # n_arr.append(n)
+        # print(n_arr[-2])
+        # lastLevel=n_arr[-2]
+        # for i in range(len(lastLevel)):
+        #     if lastLevel[i] is not None:
+        #         return(lastLevel[i])
+        print(BFS)
+        return BFS[-1][0]
