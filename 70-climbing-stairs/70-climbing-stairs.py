@@ -1,21 +1,17 @@
 class Solution:
-    
-    
-    hashMap = {}
-    
     def climbStairs(self, n: int) -> int:
         
-        if n in self.hashMap:
-            return self.hashMap[n]
+        def fib(n):
+            
+            if n in dp: return dp[n]
+            
+            if n==0 or n==1:
+                return 1
+            
+            dp[n] = fib(n-1) + fib(n-2)
+            return dp[n]
+            
+        dp = {}
+        return fib(n)
         
-        if n==0: 
-            return 1
-        
-        if n<0:
-            return 0
-        
-        self.hashMap[n] = self.climbStairs(n-1) + self.climbStairs(n-2)
-        
-        return self.hashMap[n]
-    
         
