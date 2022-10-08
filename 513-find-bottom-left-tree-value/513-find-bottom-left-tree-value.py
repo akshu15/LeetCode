@@ -50,5 +50,4 @@ class Solution:
         # for i in range(len(lastLevel)):
         #     if lastLevel[i] is not None:
         #         return(lastLevel[i])
-        print(BFS)
         return BFS[-1][0]
