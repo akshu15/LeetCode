@@ -1,6 +1,6 @@
 class Solution:
     def fib(self, n: int) -> int:
-        dp = {}
+        
         def fibonacci(n):
             if n in dp: return dp[n]
 
@@ -9,5 +9,5 @@ class Solution:
             dp[n] = fibonacci(n-1) + fibonacci(n-2)
             return dp[n]
             
-        
+        dp = {}
         return(fibonacci(n))
