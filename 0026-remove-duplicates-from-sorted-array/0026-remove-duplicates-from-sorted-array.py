@@ -7,10 +7,11 @@ class Solution:
             
             if nums[start]==nums[end]:
                 end+=1
+                
             else:
-                nums[start + 1] = nums[end]
-                nums[end] = nums[start + 1]
+                nums[start+1] = nums[end]
+                # nums[end] = nums[start]
                 start+=1
                 end+=1
-        return(start+1)   
-        
+                
+        return start+1
